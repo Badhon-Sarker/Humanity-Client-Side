@@ -15,6 +15,7 @@ import Login from './Routes/Login/Login.jsx';
 import Register from './Routes/Register/Register.jsx';
 import NeedVolunteer from './Routes/NeedVolunteer/NeedVolunteer.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx';
+import AddVolunteer from './Routes/AddVolunteer/AddVolunteer.jsx';
 
 
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path:'/needVolunteer',
         element: <NeedVolunteer></NeedVolunteer>
+      },
+      {
+        path: '/addVolunteer',
+        element: <AddVolunteer></AddVolunteer>
       }
     ]
   },
