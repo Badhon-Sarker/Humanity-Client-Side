@@ -5,25 +5,27 @@ import toast from "react-hot-toast";
 import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
-
-  const {user, Logout} = useContext(AuthContext)
+  const { user, Logout } = useContext(AuthContext);
 
   const links = (
-    <div className="flex flex-col lg:flex-row justify-evenly gap-2 font-semibold text-md">
-      <NavLink to={"/"}>Home</NavLink>
-      <NavLink to={"/needVolunteer"}>Need Volunteer</NavLink>
+    <div className="flex flex-col lg:flex-row justify-evenly gap-3 font-semibold text-md">
+      <NavLink className={({isActive})=> isActive? 'text-green-500 lg:text-black lg:border-b-2 border-green-500' : ''} to={"/"}>Home</NavLink>
+
+      <NavLink className={({isActive})=> isActive? 'text-green-500 lg:text-black lg:border-b-2 border-green-500' : ''} to={"/needVolunteer"}>Need Volunteer</NavLink>
+
+      <NavLink className={({isActive})=> isActive? 'text-green-500 lg:text-black lg:border-b-2 border-green-500' : ''} to={"/addVolunteer"}>Add Volunteer</NavLink>
     </div>
   );
 
-  const handleLogout =()=>{
+  const handleLogout = () => {
     Logout()
-    .then(result=>{
-      toast.success('Logout Successful')
-    })
-    .catch(error=>{
-      console.error(error)
-    })
-  }
+      .then((result) => {
+        toast.success("Logout Successful");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div>
@@ -61,27 +63,29 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
 
-        <div className="navbar-end">
+        <div className="navbar-end z-50">
           <div className="flex gap-1">
             {user ? (
               <div className="flex justify-between gap-2 items-center">
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar"
-                >
-                  <div className="w-10 rounded-full">
-                    <a id="my-anchor-element-id">
-                      <img alt="PhotoURL" src={user?.photoURL} />
-                    </a>
-                    <Tooltip
-                      // Don't forget the `#`!
-                      anchorSelect="#my-anchor-element-id"
-                      content={user.displayName}
-                      place={"left"}
-                    />
-                  </div>
+               
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className="btn btn-ghost btn-circle avatar"
+                    >
+                      <div className="w-10 rounded-full">
+                        <a id="my-anchor-element-id">
+                          <img alt="PhotoURL" src={user?.photoURL} />
+                        </a>
+                        <Tooltip
+                          // Don't forget the `#`!
+                          anchorSelect="#my-anchor-element-id"
+                          content={user.displayName}
+                          place={"left"}
+                        />
+                      </div>             
                 </div>
+
                 <button className="btn" onClick={handleLogout}>
                   LogOut
                 </button>
@@ -98,7 +102,6 @@ const Navbar = () => {
             )}
           </div>
         </div>
-
       </div>
     </div>
   );

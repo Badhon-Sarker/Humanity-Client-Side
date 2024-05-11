@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const AddVolunteer = () => {
   const { user } = useContext(AuthContext);
@@ -14,16 +15,39 @@ const AddVolunteer = () => {
     const description = form.description.value;
     const category = form.category.value;
     const location = form.location.value;
-    const number = form.numberOfVol.value;
+    const number = parseInt(form.numberOfVol.value);
     const date = form.date.value;
     const email = user.email;
     const name = user.displayName;
 
     const data = {
-        thumbnail, title, description, category, location, number, date, email, name
-    }
+      thumbnail,
+      title,
+      description,
+      category,
+      location,
+      number,
+      date,
+      name,
+      email
+    };
+    
 
-    console.log(data)
+
+    fetch(`http://localhost:5000/volunteers`, {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          toast.success("Successfully Added")
+          form.reset()
+        })     
+
+
   };
   return (
     <div>
@@ -58,7 +82,6 @@ const AddVolunteer = () => {
             </div>
           </div>
 
-
           <div>
             <h1>Description *</h1>
             <textarea
@@ -72,14 +95,17 @@ const AddVolunteer = () => {
           <div className="md:flex justify-between gap-2">
             <div className="w-full">
               <h1>Category *</h1>
-              <input
-                className="w-full border-2 p-2 rounded-md mb-2"
-                type="text"
+              <select
                 name="category"
-                placeholder="Category"
-                id=""
+                className="select select-bordered w-full mb-2"
                 required
-              />
+              >
+                <option value={"Healthcare"}>Healthcare</option>
+                <option value={"Education"}>Education</option>
+                <option value={"Social Service"}>Social Service</option>
+                <option value={"Animal Welfare"}>Animal Welfare</option>
+                <option value={"Environment"}>Environment</option>
+              </select>
             </div>
 
             <div className="w-full">
@@ -130,7 +156,6 @@ const AddVolunteer = () => {
                 placeholder="User name"
                 id=""
                 defaultValue={user?.displayName}
-               
               />
             </div>
 
