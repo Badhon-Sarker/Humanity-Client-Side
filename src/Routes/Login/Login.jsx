@@ -5,12 +5,12 @@ import { FaGithub } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const navigate = useNavigate()
-    const location = useLocation()
-
-    const {LoginEmail, GoogleLogin, GithubLogin} = useContext(AuthContext)
+  const { LoginEmail, GoogleLogin, GithubLogin } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
@@ -20,48 +20,44 @@ const Login = () => {
   const onSubmit = (data) => {
     const email = data.loginEmail;
     const pass = data.loginPass;
-    
-    LoginEmail(email, pass)
-    .then(result=>{
-        toast.success('Login Successful')
-        navigate(location?.state? location.state : '/')
 
-    })
-    .catch(error=>{
-        console.error(error)
-    })
+    LoginEmail(email, pass)
+      .then((result) => {
+        toast.success("Login Successful");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
-  const handleGoogle = () =>{
+  const handleGoogle = () => {
     GoogleLogin()
-    .then(result=>{
-        toast.success('Login Successful')
-        navigate(location?.state? location.state : '/')
-    })
-    .catch(error=>{
-        console.error(error)
-    })
-  }
+      .then((result) => {
+        toast.success("Login Successful");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
-
-  const handleGithub = () =>{
+  const handleGithub = () => {
     GithubLogin()
-    .then(result=>{
-        toast.success('Login Successful')
-        navigate(location?.state? location.state : '/')
-    })
-    .catch(error=>{
-        console.error(error)
-    })
-   
-
-  }
-
-
-
+      .then((result) => {
+        toast.success("Login Successful");
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="hero min-h-screen bg-login-bg ">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <div className="hero-content flex-col">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold  mt-10 font-playfair">
@@ -126,13 +122,19 @@ const Login = () => {
 
             <div>
               <div className="flex flex-col gap-2">
-                <div onClick={handleGoogle} className=" bg-red-500 text-white flex justify-center items-center gap-2 py-2 rounded-lg border">
-                  <div >
+                <div
+                  onClick={handleGoogle}
+                  className=" bg-red-500 text-white flex justify-center items-center gap-2 py-2 rounded-lg border"
+                >
+                  <div>
                     <IoLogoGoogle />
                   </div>
                   <div>Google</div>
                 </div>
-                <div onClick={handleGithub} className=" bg-red-500 text-white flex justify-center items-center gap-2 py-2 rounded-lg border">
+                <div
+                  onClick={handleGithub}
+                  className=" bg-red-500 text-white flex justify-center items-center gap-2 py-2 rounded-lg border"
+                >
                   <div>
                     <FaGithub />
                   </div>

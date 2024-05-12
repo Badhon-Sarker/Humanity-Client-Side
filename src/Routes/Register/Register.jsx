@@ -5,14 +5,14 @@ import { FaRegEye } from "react-icons/fa";
 import { IoEyeOff } from "react-icons/io5";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [eye, setEye] = useState(false);
   const [passErr, setPassErr] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const {Register, updateUser} = useContext(AuthContext)
+  const { Register, updateUser } = useContext(AuthContext);
 
   const handleEye = () => {
     setEye(!eye);
@@ -46,25 +46,25 @@ const Register = () => {
     }
 
     Register(email, password)
-    .then(result=>{
+      .then((result) => {
         updateUser(name, photo)
-        .then(result =>{
-            toast.success('User has been created')
-            navigate('/')
-        })
-        .catch(error=>{
-            console.error(error)
-        })       
-        
-    })
-    .catch(error=>{
-        console.error(error)
-    })
-
-    
+          .then((result) => {
+            toast.success("User has been created");
+            navigate("/");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
   return (
     <div className="hero min-h-screen bg-register-bg ">
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <div className="hero-content flex-col">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold  mt-10 font-playfair">

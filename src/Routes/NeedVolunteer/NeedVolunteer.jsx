@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import NeedVolunteerCard from "../NeedVolunteerCard/NeedVolunteerCard";
+import { Helmet } from "react-helmet-async";
 const NeedVolunteer = () => {
   const [volunteers, setVolunteers] = useState([]);
 
@@ -14,6 +15,7 @@ const NeedVolunteer = () => {
   }, []);
   return (
     <div>
+        <Helmet><title>Need Volunteer</title></Helmet>
         <h1 className="my-4 md:text-3xl font-bold font-playfair text-center">Need Volunteer</h1>
      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-10">

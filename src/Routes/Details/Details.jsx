@@ -4,6 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { TbCategory } from "react-icons/tb";
 import { MdOutlineConfirmationNumber } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
+import { Helmet } from "react-helmet-async";
 
 const Details = () => {
   const [item, setItem] = useState([]);
@@ -21,6 +22,9 @@ const Details = () => {
 
   return (
     <div className=" font-playfair">
+      <Helmet>
+        <title>Details</title>
+      </Helmet>
       {/* details of {item.title} */}
       <div>
         <h1 className="my-4 md:text-3xl font-bold font-playfair text-center underline">
@@ -59,7 +63,7 @@ const Details = () => {
               <h1>
                 <SlCalender />
               </h1>{" "}
-              <h1>Date: {item.date}</h1>
+              <h1>Date: {new Date(item.date).toLocaleDateString()}</h1>
             </div>
           </div>
         </div>
@@ -74,7 +78,7 @@ const Details = () => {
       </div>
 
       <div className="flex justify-center my-5">
-        <NavLink to={`/beVolunteer/${id}`} >
+        <NavLink to={`/beVolunteer/${id}`}>
           <button className="btn bg-gray-200">Be a Volunteer</button>
         </NavLink>
       </div>

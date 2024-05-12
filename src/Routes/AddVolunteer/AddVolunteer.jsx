@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddVolunteer = () => {
   const { user } = useContext(AuthContext);
+  const [startDate, setStartDate] = useState(new Date());
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +20,7 @@ const AddVolunteer = () => {
     const category = form.category.value;
     const location = form.location.value;
     const number = parseInt(form.numberOfVol.value);
-    const date = form.date.value;
+    const date = startDate;
     const email = user.email;
     const name = user.displayName;
 
@@ -51,6 +55,7 @@ const AddVolunteer = () => {
   };
   return (
     <div>
+      <Helmet><title>Add Volunteer</title></Helmet>
       <h1 className="flex justify-center items-center text-3xl font-extrabold font-playfair">
         Add Volunteer
       </h1>
@@ -134,6 +139,12 @@ const AddVolunteer = () => {
             </div>
 
             <div className="w-full">
+              <h1>Date*</h1>
+              <div className="p-2 border-2 rounded-lg"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /></div>
+
+            </div>
+
+            {/* <div className="w-full">
               <h1>Date *</h1>
               <input
                 className="w-full border-2 p-2 rounded-md mb-2"
@@ -143,7 +154,7 @@ const AddVolunteer = () => {
                 id=""
                 required
               />
-            </div>
+            </div> */}
           </div>
 
           <div className="md:flex justify-between gap-2">

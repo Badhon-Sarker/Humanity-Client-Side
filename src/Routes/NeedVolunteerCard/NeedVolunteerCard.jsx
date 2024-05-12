@@ -24,7 +24,7 @@ const NeedVolunteerCard = ({item}) => {
 
             <div className="flex justify-evenly gap-3 font-semibold my-2">
                 <div>Location: {item.location}</div>
-                <div>Date: {item.date}</div>
+                <div>Date: {new Date(item.date).toLocaleDateString()}</div>
             </div>
           </div>
           <div className="card-actions justify-center"> 

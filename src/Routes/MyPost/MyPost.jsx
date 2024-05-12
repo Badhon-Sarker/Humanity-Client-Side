@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 
 const MyPost = () => {
@@ -21,6 +22,7 @@ const MyPost = () => {
 
     return (
         <div>
+            <Helmet><title>Manage My Post</title></Helmet>
 
             manage my post{myPost.length}
             update: hocce

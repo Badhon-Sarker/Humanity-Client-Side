@@ -1,6 +1,7 @@
 import Banner from "../../Components/Banner/Banner";
 import { useEffect, useState } from "react";
 import HomeCard from "../../Components/HomeCard/HomeCard";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [volunteers, setVolunteers] = useState([]);
@@ -17,6 +18,8 @@ const Home = () => {
 
   return (
     <div>
+        <Helmet><title>Home</title></Helmet>
+        
       <div>
         <Banner></Banner>
       </div>

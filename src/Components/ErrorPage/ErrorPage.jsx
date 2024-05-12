@@ -1,8 +1,10 @@
+import { Helmet } from "react-helmet-async";
 import { NavLink } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
     <div className="px-2 mx-auto flex justify-center items-center  bg-error md:h-screen">
+      <Helmet><title>Error</title></Helmet>
       <div className="flex flex-col md:flex-row justify-center gap-2 items-center py-10">
         <div className="text-white">
           <h1 className="text-9xl font-bold lg:font-extrabold font-playfair text-center my-3">

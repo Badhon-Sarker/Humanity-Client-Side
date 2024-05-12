@@ -18,6 +18,7 @@ import BeVolunteer from "./Routes/BeVolunteer/BeVolunteer.jsx";
 import MyPost from "./Routes/MyPost/MyPost.jsx";
 import MyVolunteerReq from "./Routes/MyVolunteerReq/MyVolunteerReq.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        
       },
       {
         path: "/login",
@@ -40,38 +40,63 @@ const router = createBrowserRouter([
       },
       {
         path: "/needVolunteer",
-        element: <PrivateRoute><NeedVolunteer></NeedVolunteer></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <NeedVolunteer></NeedVolunteer>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addVolunteer",
-        element: <PrivateRoute><AddVolunteer></AddVolunteer></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddVolunteer></AddVolunteer>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/details/:id',
-        element: <PrivateRoute><Details></Details></PrivateRoute>
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/beVolunteer/:id',
-        element: <PrivateRoute><BeVolunteer></BeVolunteer></PrivateRoute>
+        path: "/beVolunteer/:id",
+        element: (
+          <PrivateRoute>
+            <BeVolunteer></BeVolunteer>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'/myPost',
-        element: <PrivateRoute><MyPost></MyPost></PrivateRoute>
-
+        path: "/myPost",
+        element: (
+          <PrivateRoute>
+            <MyPost></MyPost>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/myVolunteerReq',
-        element: <PrivateRoute><MyVolunteerReq></MyVolunteerReq></PrivateRoute>
-      }
+        path: "/myVolunteerReq",
+        element: (
+          <PrivateRoute>
+            <MyVolunteerReq></MyVolunteerReq>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
-    <Toaster />
+    <HelmetProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+      <Toaster />
+    </HelmetProvider>
   </React.StrictMode>
 );
