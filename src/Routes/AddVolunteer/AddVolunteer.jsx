@@ -34,7 +34,7 @@ const AddVolunteer = () => {
     
 
 
-    fetch(`http://localhost:5000/volunteers`, {
+    fetch(`${import.meta.env.VITE_SITE}/volunteers`, {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
