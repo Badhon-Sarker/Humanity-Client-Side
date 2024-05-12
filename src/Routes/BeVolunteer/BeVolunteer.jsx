@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const BeVolunteer = () => {
   const { user } = useContext(AuthContext);
@@ -34,7 +35,19 @@ const BeVolunteer = () => {
       email,
     };
 
-    console.log(data);
+    fetch(`${import.meta.env.VITE_SITE}/beVolunteers`, {
+        method: 'POST',
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      toast.success("Successfully Requested")
+      form.reset()
+    })
+
   };
 
   const [beVolunteer, setBeVolunteer] = useState([]);
@@ -112,11 +125,11 @@ const BeVolunteer = () => {
                 <option defaultValue={beVolunteer.category}>
                   {beVolunteer.category}
                 </option>
-                <option value={"Healthcare"}>Healthcare</option>
-                <option value={"Education"}>Education</option>
-                <option value={"Social Service"}>Social Service</option>
-                <option value={"Animal Welfare"}>Animal Welfare</option>
-                <option value={"Environment"}>Environment</option>
+                <option disabled value={"Healthcare"}>Healthcare</option>
+                <option disabled value={"Education"}>Education</option>
+                <option disabled value={"Social Service"}>Social Service</option>
+                <option disabled value={"Animal Welfare"}>Animal Welfare</option>
+                <option disabled value={"Environment"}>Environment</option>
               </select>
             </div>
 
@@ -230,6 +243,10 @@ const BeVolunteer = () => {
               placeholder="Your suggestion"
               required
             ></textarea>
+          </div>
+
+          <div>
+            <h1 className="font-semibold my-3">Status: <span className="text-green-600">Requested</span></h1>
           </div>
 
           <div className="flex justify-center my-2">

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { IoLogoGoogle } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa6";
 import { useContext } from "react";
@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 const Login = () => {
 
     const navigate = useNavigate()
+    const location = useLocation()
 
     const {LoginEmail, GoogleLogin, GithubLogin} = useContext(AuthContext)
   const {
@@ -23,7 +24,8 @@ const Login = () => {
     LoginEmail(email, pass)
     .then(result=>{
         toast.success('Login Successful')
-        navigate('/')
+        navigate(location?.state? location.state : '/')
+
     })
     .catch(error=>{
         console.error(error)
@@ -34,7 +36,7 @@ const Login = () => {
     GoogleLogin()
     .then(result=>{
         toast.success('Login Successful')
-        navigate('/')
+        navigate(location?.state? location.state : '/')
     })
     .catch(error=>{
         console.error(error)
@@ -46,7 +48,7 @@ const Login = () => {
     GithubLogin()
     .then(result=>{
         toast.success('Login Successful')
-        navigate('/')
+        navigate(location?.state? location.state : '/')
     })
     .catch(error=>{
         console.error(error)

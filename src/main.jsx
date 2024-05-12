@@ -15,6 +15,9 @@ import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
 import AddVolunteer from "./Routes/AddVolunteer/AddVolunteer.jsx";
 import Details from "./Routes/Details/Details.jsx";
 import BeVolunteer from "./Routes/BeVolunteer/BeVolunteer.jsx";
+import MyPost from "./Routes/MyPost/MyPost.jsx";
+import MyVolunteerReq from "./Routes/MyVolunteerReq/MyVolunteerReq.jsx";
+import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,19 +40,28 @@ const router = createBrowserRouter([
       },
       {
         path: "/needVolunteer",
-        element: <NeedVolunteer></NeedVolunteer>,
+        element: <PrivateRoute><NeedVolunteer></NeedVolunteer></PrivateRoute>,
       },
       {
         path: "/addVolunteer",
-        element: <AddVolunteer></AddVolunteer>,
+        element: <PrivateRoute><AddVolunteer></AddVolunteer></PrivateRoute>,
       },
       {
         path: '/details/:id',
-        element: <Details></Details>
+        element: <PrivateRoute><Details></Details></PrivateRoute>
       },
       {
         path: '/beVolunteer/:id',
-        element: <BeVolunteer></BeVolunteer>
+        element: <PrivateRoute><BeVolunteer></BeVolunteer></PrivateRoute>
+      },
+      {
+        path:'/myPost',
+        element: <PrivateRoute><MyPost></MyPost></PrivateRoute>
+
+      },
+      {
+        path: '/myVolunteerReq',
+        element: <PrivateRoute><MyVolunteerReq></MyVolunteerReq></PrivateRoute>
       }
     ],
   },
