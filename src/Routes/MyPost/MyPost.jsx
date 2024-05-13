@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { FaPenNib } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const MyPost = () => {
   const [myPost, setMyPost] = useState([]);
+  const [reload, setReload] = useState(false)
 
   const { user } = useContext(AuthContext);
 
@@ -18,10 +20,38 @@ const MyPost = () => {
       .then((data) => {
         setMyPost(data);
       });
-  }, []);
+  }, [user.email, reload]);
 
   const handleDelete = (id) => {
     console.log("deleted hocce", id);
+
+
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+
+        if (result.isConfirmed) {
+          fetch(`${import.meta.env.VITE_SITE}/postDelete/${id}`, {
+            method: "DELETE",
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              setReload(!reload)
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your post has been deleted.",
+                icon: "success",
+              });
+              
+            });
+        }
+      });
   };
 
   return (
