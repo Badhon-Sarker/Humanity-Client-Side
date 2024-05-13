@@ -1,13 +1,26 @@
-import { useContext, useState } from "react";
+import { useParams } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
-const AddVolunteer = () => {
+const UpdatePost = () => {
+  const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(new Date());
+  const [updateVolunteer, setUpdateVolunteer] = useState([]);
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_SITE}/beVolunteer/${id}`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUpdateVolunteer(data);
+      });
+  }, [id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,31 +46,32 @@ const AddVolunteer = () => {
       number,
       date,
       name,
-      email
+      email,
     };
-    
 
-
-    fetch(`${import.meta.env.VITE_SITE}/volunteers`, {
-            method: 'POST',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(res => res.json())
-        .then(data =>{
-          toast.success("Successfully Added")
-          form.reset()
-        })     
-
-
+    fetch(`${import.meta.env.VITE_SITE}/updatePost/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Successfully Updated");
+        }
+      });
   };
+
   return (
     <div>
-      <Helmet><title>Add Volunteer</title></Helmet>
+      <Helmet>
+        <title>Update</title>
+      </Helmet>
+
       <h1 className="flex justify-center items-center text-3xl font-extrabold font-playfair">
-        Add Volunteer
+        Update Page
       </h1>
       <form onSubmit={handleSubmit}>
         <div className="border-2 p-2 md:p-5 w-full my-3">
@@ -69,6 +83,7 @@ const AddVolunteer = () => {
                 type="text"
                 name="thumbnail"
                 placeholder="Thumbnail URL"
+                defaultValue={updateVolunteer.thumbnail}
                 id=""
                 required
               />
@@ -81,6 +96,7 @@ const AddVolunteer = () => {
                 type="text"
                 name="postTitle"
                 placeholder="Post title"
+                defaultValue={updateVolunteer.title}
                 id=""
                 required
               />
@@ -93,6 +109,7 @@ const AddVolunteer = () => {
               className="textarea textarea-bordered w-full h-48"
               name="description"
               placeholder="Short description"
+              defaultValue={updateVolunteer.description}
               required
             ></textarea>
           </div>
@@ -105,6 +122,9 @@ const AddVolunteer = () => {
                 className="select select-bordered w-full mb-2"
                 required
               >
+                <option defaultValue={updateVolunteer.category}>
+                  {updateVolunteer.category}
+                </option>
                 <option value={"Healthcare"}>Healthcare</option>
                 <option value={"Education"}>Education</option>
                 <option value={"Social Service"}>Social Service</option>
@@ -120,6 +140,7 @@ const AddVolunteer = () => {
                 type="text"
                 name="location"
                 placeholder="Location"
+                defaultValue={updateVolunteer.location}
                 required
               />
             </div>
@@ -133,6 +154,7 @@ const AddVolunteer = () => {
                 type="number"
                 name="numberOfVol"
                 placeholder="Number of volunteer"
+                defaultValue={updateVolunteer.number}
                 id=""
                 required
               />
@@ -140,26 +162,19 @@ const AddVolunteer = () => {
 
             <div className="w-full">
               <h1>Date*</h1>
-              <div className="p-2 border-2 rounded-lg"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)} minDate={new Date()} /></div>
-
+              <div className="p-2 border-2 rounded-lg">
+                <DatePicker
+                  selected={updateVolunteer.date}
+                  onChange={(date) => setStartDate(date)}
+                  minDate={new Date()}
+                />
+              </div>
             </div>
-
-            {/* <div className="w-full">
-              <h1>Date *</h1>
-              <input
-                className="w-full border-2 p-2 rounded-md mb-2"
-                type="date"
-                name="date"
-                placeholder="Date"
-                id=""
-                required
-              />
-            </div> */}
           </div>
 
           <div className="md:flex justify-between gap-2">
             <div className="w-full ">
-              <h1>User Name</h1>
+              <h1>Organizer Name</h1>
               <input
                 className="w-full border-2 p-2 rounded-md mb-2 "
                 type="text"
@@ -167,11 +182,12 @@ const AddVolunteer = () => {
                 placeholder="User name"
                 id=""
                 defaultValue={user?.displayName}
+                readOnly
               />
             </div>
 
             <div className="w-full ">
-              <h1>User Email</h1>
+              <h1>Organizer Email</h1>
               <input
                 className="w-full border-2 p-2 rounded-md mb-2 "
                 type="email"
@@ -180,12 +196,13 @@ const AddVolunteer = () => {
                 id="email"
                 defaultValue={user?.email}
                 required
+                readOnly
               />
             </div>
           </div>
 
           <div className="flex justify-center my-2">
-            <button className="w-full md:w-1/2 btn">Add Post</button>
+            <button className="w-full md:w-1/2 btn">Update Post</button>
           </div>
         </div>
       </form>
@@ -193,4 +210,4 @@ const AddVolunteer = () => {
   );
 };
 
-export default AddVolunteer;
+export default UpdatePost;

@@ -56,7 +56,7 @@ const MyPost = () => {
                 <td>{post.location}</td>
                 <td>{post.number}</td>
                 <td>
-                  <Link >
+                  <Link to={`/updatePost/${post._id}`} >
                     <button className="bg-green-400 text-xl rounded-lg btn text-white">
                       <FaPenNib />
                     </button>

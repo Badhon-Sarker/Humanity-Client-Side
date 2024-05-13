@@ -19,6 +19,7 @@ import MyPost from "./Routes/MyPost/MyPost.jsx";
 import MyVolunteerReq from "./Routes/MyVolunteerReq/MyVolunteerReq.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import { HelmetProvider } from "react-helmet-async";
+import UpdatePost from "./Routes/UpdatePost/UpdatePost.jsx";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: '/updatePost/:id',
+        element: <PrivateRoute><UpdatePost></UpdatePost></PrivateRoute>
+      }
     ],
   },
 ]);
