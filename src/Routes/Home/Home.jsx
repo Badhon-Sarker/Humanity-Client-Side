@@ -27,7 +27,6 @@ const Home = () => {
         <title>Home</title>
       </Helmet>
 
-     data {volunteers.length}
 
       {/* banner */}
 

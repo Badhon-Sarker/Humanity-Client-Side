@@ -1,7 +1,9 @@
+import { Helmet } from "react-helmet-async";
 
 const NoVolReq = () => {
   return (
     <div>
+        <Helmet><title>My Volunteer Request</title></Helmet>
       <h1 className="text-center text-4xl font-playfair font-bold my-5">
          Empty Volunteer Request
       </h1>
