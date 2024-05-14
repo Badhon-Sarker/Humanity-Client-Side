@@ -8,8 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const BeVolunteer = () => {
   const { user } = useContext(AuthContext);
-  
-//   new Date()
+
+  //   new Date()
   const [beVolunteer, setBeVolunteer] = useState([]);
 
   const { id } = useParams();
@@ -24,9 +24,7 @@ const BeVolunteer = () => {
       });
   }, [id]);
 
-
   const [startDate, setStartDate] = useState([beVolunteer?.date]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +41,7 @@ const BeVolunteer = () => {
     const suggestion = form.suggestion.value;
     const email = user.email;
     const name = user.displayName;
-    const status = 'requested'
+    const status = "requested";
 
     const data = {
       thumbnail,
@@ -56,26 +54,29 @@ const BeVolunteer = () => {
       suggestion,
       name,
       email,
-      status
+      status,
     };
 
-   
-
     fetch(`${import.meta.env.VITE_SITE}/beVolunteers`, {
-        method: 'POST',
-        headers: {
-            'content-type' : 'application/json'
-        },
-        body: JSON.stringify(data)
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
     })
-    .then(res => res.json())
-    .then(data =>{
-      toast.success("Successfully Requested")
-      form.reset()
-    })
+      .then((res) => res.json())
+      .then((data) => {
+        // delete need vol 
+        fetch(`${import.meta.env.VITE_SITE}/needVolDelete/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            toast.success("Successfully Requested");
+            form.reset();
+          });
+      });
   };
-
-  
 
   return (
     <div>
@@ -197,8 +198,13 @@ const BeVolunteer = () => {
 
             <div className="w-full">
               <h1>Date*</h1>
-              <div className="p-2 border-2 rounded-lg"><DatePicker selected={beVolunteer.date}onChange={(date) => setStartDate(date)} readOnly /></div>
-
+              <div className="p-2 border-2 rounded-lg">
+                <DatePicker
+                  selected={beVolunteer.date}
+                  onChange={(date) => setStartDate(date)}
+                  readOnly
+                />
+              </div>
             </div>
 
             {/* <div className="w-full">
