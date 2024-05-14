@@ -39,7 +39,7 @@ const MyVolunteerReq = () => {
             .then((data) => {
               setReload(!reload)
               Swal.fire({
-                title: "Deleted!",
+                title: "Cancelled!",
                 text: "Your request has been cancelled.",
                 icon: "success",
               });

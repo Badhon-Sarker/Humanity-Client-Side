@@ -41,7 +41,8 @@ const BeVolunteer = () => {
     const suggestion = form.suggestion.value;
     const email = user.email;
     const name = user.displayName;
-    const status = "requested";
+    const status = form.status.value;
+
 
     const data = {
       thumbnail,
@@ -66,7 +67,7 @@ const BeVolunteer = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // delete need vol 
+        // delete need vol
         fetch(`${import.meta.env.VITE_SITE}/needVolDelete/${id}`, {
           method: "DELETE",
         })
@@ -189,12 +190,7 @@ const BeVolunteer = () => {
               />
             </div>
 
-            {/* <div className="w-full">
-              <h1>Deadline *</h1>
-              <div className="w-full border-2 p-2 rounded-md mb-2">
-                <p>{new Date(beVolunteer.date).toLocaleDateString()}</p>
-              </div>
-            </div> */}
+            
 
             <div className="w-full">
               <h1>Date*</h1>
@@ -207,21 +203,6 @@ const BeVolunteer = () => {
               </div>
             </div>
 
-            {/* <div className="w-full">
-              <h1>Deadline *</h1>
-              <input
-                className="w-full border-2 p-2 rounded-md mb-2"
-                type="date"
-                name="date"
-                placeholder="Date"
-                id=""
-                
-                defaultValue={(beVolunteer.date)}
-                // defaultValue={new Date(beVolunteer.date).toLocaleDateString()}
-                required
-                readOnly
-              />
-            </div> */}
           </div>
 
           <div className="md:flex justify-between gap-2">
@@ -293,10 +274,19 @@ const BeVolunteer = () => {
             ></textarea>
           </div>
 
-          <div>
-            <h1 className="font-semibold my-3">
-              Status: <span className="text-green-600">Requested</span>
-            </h1>
+          <div className="md:flex justify-between gap-2">
+            <div className="w-full ">
+              <h1>Status *</h1>
+              <input
+                className="w-full border-2 p-2 rounded-md mb-2 "
+                type="text"
+                name="status"
+                placeholder="Status"
+                defaultValue={'Requested'}
+                required
+                readOnly
+              />
+            </div>
           </div>
 
           <div className="flex justify-center my-2">
