@@ -9,7 +9,7 @@ import Testimonials from "../../Components/Testimonial/Testimonials";
 const Home = () => {
   const [volunteers, setVolunteers] = useState([]);
 
-  const slice = volunteers?.slice(0, 2);
+  const slice = volunteers?.slice(0, 6);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_SITE}/volunteers`, {
@@ -26,6 +26,8 @@ const Home = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
+
+     data {volunteers.length}
 
       {/* banner */}
 
@@ -60,6 +62,7 @@ const Home = () => {
       <div>
         <Testimonials></Testimonials>
       </div>
+      <hr />
 
       {/* FAQ */}
 

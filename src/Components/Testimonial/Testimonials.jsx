@@ -16,7 +16,7 @@ const Testimonials = () => {
         <section className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 lg:grid-cols-3">
             <div className="p-8 border rounded-lg dark:border-gray-700">
                 <p className="leading-loose text-gray-500 dark:text-gray-400">
-                    “Volunteering with Humanity has been a profound experience, shaping not only the lives of those we serve but also my own perspective on compassion and altruism. The organization's unwavering commitment to positive change resonates deeply within me.”.
+                    “Volunteering with Humanity has been a profound experience, shaping not only the lives of those we serve but also my own perspective on compassion and altruism. The organization's unwavering commitment to positive change resonates deeply within me.”
                 </p>
 
                 <div className="flex items-center mt-8 -mx-2">
@@ -31,7 +31,7 @@ const Testimonials = () => {
 
             <div className="p-8 border rounded-lg dark:border-gray-700">
                 <p className="leading-loose text-gray-500 dark:text-gray-400">
-                    “Humanity is more than just an organization; it's a vibrant community fueled by empathy and solidarity. Here, I've found not only a platform to make a difference but also a network of like-hearted individuals who have become my second family.”.
+                    “Humanity is more than just an organization; it's a vibrant community fueled by empathy and solidarity. Here, I've found not only a platform to make a difference but also a network of like-hearted individuals who have become my second family.”
                 </p>
 
                 <div className="flex items-center mt-8 -mx-2">
@@ -46,7 +46,7 @@ const Testimonials = () => {
 
             <div className="p-8 border rounded-lg dark:border-gray-700">
                 <p className="leading-loose text-gray-500 dark:text-gray-400">
-                    “Every moment spent with Humanity is a testament to the power of collective action and empathy. From rebuilding communities after natural disasters to advocating for marginalized groups, our impact reverberates far beyond the boundaries of our projects.”.
+                    “Every moment spent with Humanity is a testament to the power of collective action and empathy. From rebuilding communities after natural disasters to advocating for marginalized groups, our impact reverberates far beyond the boundaries of our projects.”
                 </p>
 
                 <div className="flex items-center mt-8 -mx-2">
