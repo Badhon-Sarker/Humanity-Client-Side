@@ -23,8 +23,7 @@ const MyPost = () => {
   }, [user.email, reload]);
 
   const handleDelete = (id) => {
-    console.log("deleted hocce", id);
-
+    // console.log("deleted hocce", id);
 
     Swal.fire({
         title: "Are you sure?",
