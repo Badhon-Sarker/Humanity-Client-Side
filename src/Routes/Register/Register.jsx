@@ -6,6 +6,7 @@ import { IoEyeOff } from "react-icons/io5";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 const Register = () => {
   const [eye, setEye] = useState(false);
@@ -49,6 +50,10 @@ const Register = () => {
       .then((result) => {
         updateUser(name, photo)
           .then((result) => {
+            const user = { email };
+            axios.post(`${import.meta.env.VITE_SITE}/jwt`, user, {
+              withCredentials: true,
+            });
             toast.success("User has been created");
             navigate("/");
           })

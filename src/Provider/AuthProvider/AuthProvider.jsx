@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { GithubAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../../../firebase.config";
 import { GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext()
 
@@ -48,6 +49,9 @@ const AuthProvider = ({children}) => {
 
     const Logout = () =>{
         setLoading(true)
+        axios(`${import.meta.env.VITE_SITE}/logOut`,{
+            withCredentials: true
+        });
         return signOut(auth)
     }
 

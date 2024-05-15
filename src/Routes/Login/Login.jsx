@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -23,6 +24,10 @@ const Login = () => {
 
     LoginEmail(email, pass)
       .then((result) => {
+        const user = { email }
+        axios.post(`${import.meta.env.VITE_SITE}/jwt` , user , {
+          withCredentials: true
+        })
         toast.success("Login Successful");
         navigate(location?.state ? location.state : "/");
       })
@@ -34,6 +39,13 @@ const Login = () => {
   const handleGoogle = () => {
     GoogleLogin()
       .then((result) => {
+
+        axios.post(`${import.meta.env.VITE_SITE}/jwt` , {
+          email: result?.user?.email
+        }, {
+          withCredentials: true
+        })
+                 
         toast.success("Login Successful");
         navigate(location?.state ? location.state : "/");
       })
@@ -45,6 +57,11 @@ const Login = () => {
   const handleGithub = () => {
     GithubLogin()
       .then((result) => {
+        axios.post(`${import.meta.env.VITE_SITE}/jwt` , {
+          email: result?.user?.email
+        }, {
+          withCredentials: true
+        })
         toast.success("Login Successful");
         navigate(location?.state ? location.state : "/");
       })
