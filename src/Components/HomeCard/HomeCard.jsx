@@ -1,6 +1,8 @@
+
 import { NavLink } from "react-router-dom";
 
 const HomeCard = ({item}) => {
+
 
   return (
     <div data-aos="fade-up" data-aos-duration="1000" className="card bg-white shadow-xl font-playfair">

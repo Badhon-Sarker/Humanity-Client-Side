@@ -33,29 +33,27 @@ const AddVolunteer = () => {
       number,
       date,
       name,
-      email
+      email,
     };
-    
-
 
     fetch(`${import.meta.env.VITE_SITE}/volunteers`, {
-            method: 'POST',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(res => res.json())
-        .then(data =>{
-          toast.success("Successfully Added")
-          form.reset()
-        })     
-
-
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Successfully Added");
+        form.reset();
+      });
   };
   return (
     <div data-aos="zoom-in" data-aos-duration="1100">
-      <Helmet><title>Add Volunteer</title></Helmet>
+      <Helmet>
+        <title>Add Volunteer</title>
+      </Helmet>
       <h1 className="flex justify-center items-center text-3xl font-extrabold font-playfair">
         Add Volunteer
       </h1>
@@ -100,6 +98,7 @@ const AddVolunteer = () => {
           <div className="md:flex justify-between gap-2">
             <div className="w-full">
               <h1>Category *</h1>
+
               <select
                 name="category"
                 className="select select-bordered w-full mb-2"
@@ -140,26 +139,19 @@ const AddVolunteer = () => {
 
             <div className="w-full">
               <h1>Date*</h1>
-              <div className="p-2 border-2 rounded-lg"><DatePicker selected={startDate} onChange={(date) => setStartDate(date)} minDate={new Date()} /></div>
-
+              <div className="p-2 border-2 rounded-lg">
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  minDate={new Date()}
+                />
+              </div>
             </div>
-
-            {/* <div className="w-full">
-              <h1>Date *</h1>
-              <input
-                className="w-full border-2 p-2 rounded-md mb-2"
-                type="date"
-                name="date"
-                placeholder="Date"
-                id=""
-                required
-              />
-            </div> */}
           </div>
 
           <div className="md:flex justify-between gap-2">
             <div className="w-full ">
-              <h1>User Name</h1>
+              <h1>Organizer Name</h1>
               <input
                 className="w-full border-2 p-2 rounded-md mb-2 "
                 type="text"
@@ -171,7 +163,7 @@ const AddVolunteer = () => {
             </div>
 
             <div className="w-full ">
-              <h1>User Email</h1>
+              <h1>Organizer Email</h1>
               <input
                 className="w-full border-2 p-2 rounded-md mb-2 "
                 type="email"

@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom";
 import FAQ from "../../Components/FAQ/FAQ";
 import Testimonials from "../../Components/Testimonial/Testimonials";
 
-import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import AOS from "aos";
+import "aos/dist/aos.css";
 AOS.init();
 
 const Home = () => {
@@ -31,21 +31,42 @@ const Home = () => {
         <title>Home</title>
       </Helmet>
 
-
       {/* banner */}
 
-      <div  data-aos="fade-up" data-aos-duration="1000">
+      <div data-aos="fade-up" data-aos-duration="1000">
         <Banner></Banner>
       </div>
 
       {/* data */}
 
-      <div >
-        <h1 data-aos="fade-down" data-aos-duration="1000" className="text-center text-4xl font-playfair font-bold my-5">
+      <div>
+        <h1
+          data-aos="fade-down"
+          data-aos-duration="1000"
+          className="text-center text-4xl font-playfair font-bold my-5"
+        >
           Volunteer Needs Now
         </h1>
 
         <hr />
+
+        {volunteers.length === 0 && (
+          <div data-aos="fade-up"
+          data-aos-duration="1300">
+            
+            <div className="flex justify-center items-center my-10">
+              <img
+                src="https://i.ibb.co/7g7WWPc/Open-Doodles-Messy.png"
+                alt=""
+              />
+            </div>
+
+            <h1 className="text-center text-red-300 text-3xl font-playfair font-bold my-5">
+              No Need Volunteers
+            </h1>
+
+          </div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-10">
           {slice?.map((item) => (
@@ -55,7 +76,7 @@ const Home = () => {
 
         <div className="flex justify-center my-5 ">
           <NavLink to={"/needVolunteer"}>
-            <button  className="btn bg-gray-200">See All</button>
+            <button className="btn bg-gray-200">See All</button>
           </NavLink>
         </div>
 
@@ -70,13 +91,8 @@ const Home = () => {
       {/* FAQ */}
 
       <div className="my-10">
-      <FAQ></FAQ>
+        <FAQ></FAQ>
       </div>
-
-     
-      
-
-     
     </div>
   );
 };

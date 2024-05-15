@@ -39,8 +39,10 @@ const BeVolunteer = () => {
     const number = parseInt(form.numberOfVol.value);
     const date = beVolunteer.date;
     const suggestion = form.suggestion.value;
-    const email = user.email;
-    const name = user.displayName;
+    const organizerName = form.organizerName.value;
+    const organizerEmail = form.organizerEmail.value;
+    const userEmail = user.email;
+    const userName = user.displayName;
     const status = form.status.value;
 
 
@@ -53,8 +55,10 @@ const BeVolunteer = () => {
       number,
       date,
       suggestion,
-      name,
-      email,
+      organizerName,
+      organizerEmail,
+      userName,
+      userEmail,
       status,
     };
 
@@ -211,7 +215,7 @@ const BeVolunteer = () => {
               <input
                 className="w-full border-2 p-2 rounded-md mb-2 "
                 type="text"
-                name="name"
+                name="organizerName"
                 placeholder="User name"
                 id=""
                 defaultValue={beVolunteer.name}
@@ -224,7 +228,7 @@ const BeVolunteer = () => {
               <input
                 className="w-full border-2 p-2 rounded-md mb-2 "
                 type="email"
-                name=""
+                name="organizerEmail"
                 placeholder="User email"
                 id="email"
                 defaultValue={beVolunteer.email}
