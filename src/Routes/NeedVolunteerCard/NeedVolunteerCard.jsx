@@ -5,7 +5,7 @@ const NeedVolunteerCard = ({ item }) => {
     <div data-aos="fade-up" data-aos-duration="1000">
       <div className="card h-[500px] bg-base-100 shadow-xl">
         <figure>
-          <img className="h-48" src={item.thumbnail} alt="image" />
+          <img className="h-48 w-10/12 mt-2" src={item.thumbnail} alt="image" />
         </figure>
 
         <div className="card-body">

@@ -10,7 +10,7 @@ const HomeCard = ({item}) => {
         <img
           src={item.thumbnail}
           alt="image"
-          className="rounded-xl"
+          className="rounded-xl w-full"
         />
       </figure>
       <div className="card-body items-center text-center">

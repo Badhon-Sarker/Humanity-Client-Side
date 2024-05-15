@@ -6,6 +6,8 @@ import { PiTextColumnsBold } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
 
 const NeedVolunteer = () => {
+  
+  const [showVolunteer, setShowVolunteer] = useState([])
   const [volunteers, setVolunteers] = useState([]);
   const [grid, setGrid] = useState(true);
 
@@ -15,7 +17,8 @@ const NeedVolunteer = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setVolunteers(data);
+        setShowVolunteer(data);
+        setVolunteers(data)
       });
   }, []);
 
@@ -32,7 +35,7 @@ const NeedVolunteer = () => {
       });
   };
 
-  if (volunteers.length === 0) {
+  if (showVolunteer.length === 0) {
     return (
       <div>
         <Helmet>

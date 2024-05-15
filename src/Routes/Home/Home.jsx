@@ -51,9 +51,7 @@ const Home = () => {
         <hr />
 
         {volunteers.length === 0 && (
-          <div data-aos="fade-up"
-          data-aos-duration="1300">
-            
+          <div data-aos="fade-up" data-aos-duration="1300">
             <div className="flex justify-center items-center my-10">
               <img
                 src="https://i.ibb.co/7g7WWPc/Open-Doodles-Messy.png"
@@ -64,7 +62,6 @@ const Home = () => {
             <h1 className="text-center text-red-300 text-3xl font-playfair font-bold my-5">
               No Need Volunteers
             </h1>
-
           </div>
         )}
 
@@ -89,6 +86,7 @@ const Home = () => {
       <hr />
 
       {/* FAQ */}
+
 
       <div className="my-10">
         <FAQ></FAQ>
