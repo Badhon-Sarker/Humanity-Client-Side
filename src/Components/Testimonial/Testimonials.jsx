@@ -5,16 +5,16 @@ const Testimonials = () => {
        <div className="font-playfair">
         <section className="bg-white dark:bg-gray-900">
     <div className="container px-6 py-10 mx-auto">
-        <h1 className="text-3xl font-bold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+        <h1 data-aos="fade-up" data-aos-duration="1200" className="text-3xl font-bold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
             What our <span className="text-blue-500 ">peoples</span> say
         </h1>
 
-        <p className="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
+        <p data-aos="fade-up" data-aos-duration="1200" className="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
         Embark on an immersive journey into the vibrant world of Humanity and discover the profound impact of volunteering through the heartfelt reflections of our dedicated volunteers
         </p>
 
         <section className="grid grid-cols-1 gap-8 mt-8 xl:mt-12 lg:grid-cols-3">
-            <div className="p-8 border rounded-lg dark:border-gray-700">
+            <div data-aos="fade-up" data-aos-duration="1200" className="p-8 border rounded-lg dark:border-gray-700">
                 <p className="leading-loose text-gray-500 dark:text-gray-400">
                     “Volunteering with Humanity has been a profound experience, shaping not only the lives of those we serve but also my own perspective on compassion and altruism. The organization's unwavering commitment to positive change resonates deeply within me.”
                 </p>
@@ -29,7 +29,7 @@ const Testimonials = () => {
                 </div>
             </div>
 
-            <div className="p-8 border rounded-lg dark:border-gray-700">
+            <div data-aos="fade-up" data-aos-duration="1200" className="p-8 border rounded-lg dark:border-gray-700">
                 <p className="leading-loose text-gray-500 dark:text-gray-400">
                     “Humanity is more than just an organization; it's a vibrant community fueled by empathy and solidarity. Here, I've found not only a platform to make a difference but also a network of like-hearted individuals who have become my second family.”
                 </p>
@@ -44,7 +44,7 @@ const Testimonials = () => {
                 </div>
             </div>
 
-            <div className="p-8 border rounded-lg dark:border-gray-700">
+            <div data-aos="fade-up" data-aos-duration="1200" className="p-8 border rounded-lg dark:border-gray-700">
                 <p className="leading-loose text-gray-500 dark:text-gray-400">
                     “Every moment spent with Humanity is a testament to the power of collective action and empathy. From rebuilding communities after natural disasters to advocating for marginalized groups, our impact reverberates far beyond the boundaries of our projects.”
                 </p>

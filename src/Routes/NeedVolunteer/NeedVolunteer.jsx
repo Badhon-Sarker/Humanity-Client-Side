@@ -37,6 +37,10 @@ const NeedVolunteer = () => {
   if (volunteers.length === 0) {
     return (
       <div>
+        <Helmet>
+        <title>Need Volunteer</title>
+      </Helmet>
+
         <h1 className="text-center text-4xl font-playfair font-bold my-5">
           No Need Volunteers
         </h1>
@@ -50,11 +54,11 @@ const NeedVolunteer = () => {
   }
 
   return (
-    <div>
+    <div >
       <Helmet>
         <title>Need Volunteer</title>
       </Helmet>
-      <h1 className="my-4 md:text-3xl font-bold font-playfair text-center">
+      <h1  className="my-4 md:text-3xl font-bold font-playfair text-center">
         Need Volunteer
       </h1>
 
@@ -83,7 +87,7 @@ const NeedVolunteer = () => {
       </div>
 
       {!grid ? (
-        <table className="table">
+        <table data-aos="fade-up" data-aos-duration="1000" className="table">
           {/* head */}
           <thead>
             <tr className="font-bold text-black md:text-xl">

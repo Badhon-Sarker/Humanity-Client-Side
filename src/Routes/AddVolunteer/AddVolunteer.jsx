@@ -54,7 +54,7 @@ const AddVolunteer = () => {
 
   };
   return (
-    <div>
+    <div data-aos="zoom-in" data-aos-duration="1100">
       <Helmet><title>Add Volunteer</title></Helmet>
       <h1 className="flex justify-center items-center text-3xl font-extrabold font-playfair">
         Add Volunteer

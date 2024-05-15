@@ -7,13 +7,13 @@ const Banner = () => {
 
           <div className="absolute flex items-center  transform top-0  md:bottom-1/3 text-white bg-gradient-to-r from-[#3e3e3e] to-[rgba(21, 21, 21, 0)] h-full">
             <div className="lg:w-1/2 ml-5">
-              <h1 className=" text-xl md:text-3xl font-bold my-2">
+              <h1 data-aos="fade-up-right" data-aos-duration="1000" className=" text-xl md:text-3xl font-bold my-2">
                 VolunteerHub: Where Community Meets Purpose
               </h1>
-              <h2 className="lg:text-xl lg:font-bold mb-4">
+              <h2 data-aos="fade-up-right" data-aos-duration="1200" className="lg:text-xl lg:font-bold mb-4">
                 Join, Connect, Serve: Your Pathway to Impact Starts Here!
               </h2>
-              <p>
+              <p data-aos="fade-up-right" data-aos-duration="1400">
                 Welcome to VolunteerHub, your friendly platform for making a
                 difference. Sign up now to explore diverse volunteer
                 opportunities, connect with like-minded individuals, and make a
@@ -37,13 +37,13 @@ const Banner = () => {
 
           <div className="absolute flex items-center  transform top-0  md:bottom-1/3 text-white bg-gradient-to-r from-[#3e3e3e] to-[rgba(21, 21, 21, 0)] h-full">
             <div className="lg:w-1/2 ml-5">
-              <h1 className=" text-xl md:text-3xl font-bold my-2">
+              <h1 data-aos="fade-up-right" data-aos-duration="1000" className=" text-xl md:text-3xl font-bold my-2">
                 VolunteerHub: Where Community Meets Purpose
               </h1>
-              <h2 className="lg:text-xl lg:font-bold mb-4">
+              <h2 data-aos="fade-up-right" data-aos-duration="1200" className="lg:text-xl lg:font-bold mb-4">
                 Join, Connect, Serve: Your Pathway to Impact Starts Here!
               </h2>
-              <p>
+              <p data-aos="fade-up-right" data-aos-duration="1400">
                 Welcome to VolunteerHub, your friendly platform for making a
                 difference. Sign up now to explore diverse volunteer
                 opportunities, connect with like-minded individuals, and make a
@@ -69,13 +69,13 @@ const Banner = () => {
 
           <div className="absolute flex items-center  transform top-0  md:bottom-1/3 text-white bg-gradient-to-r from-[#3e3e3e] to-[rgba(21, 21, 21, 0)] h-full">
             <div className="lg:w-1/2 ml-5">
-              <h1 className=" text-xl md:text-3xl font-bold my-2">
+              <h1 data-aos="fade-up-right" data-aos-duration="1000" className=" text-xl md:text-3xl font-bold my-2">
                 VolunteerHub: Where Community Meets Purpose
               </h1>
-              <h2 className="lg:text-xl lg:font-bold mb-4">
+              <h2 data-aos="fade-up-right" data-aos-duration="1200" className="lg:text-xl lg:font-bold mb-4">
                 Join, Connect, Serve: Your Pathway to Impact Starts Here!
               </h2>
-              <p>
+              <p data-aos="fade-up-right" data-aos-duration="1400">
                 Welcome to VolunteerHub, your friendly platform for making a
                 difference. Sign up now to explore diverse volunteer
                 opportunities, connect with like-minded individuals, and make a
@@ -101,13 +101,13 @@ const Banner = () => {
 
           <div className="absolute flex items-center  transform top-0  md:bottom-1/3 text-white bg-gradient-to-r from-[#3e3e3e] to-[rgba(21, 21, 21, 0)] h-full">
             <div className="lg:w-1/2 ml-5">
-              <h1 className=" text-xl md:text-3xl font-bold my-2">
+              <h1 data-aos="fade-up-right" data-aos-duration="1000" className=" text-xl md:text-3xl font-bold my-2">
                 VolunteerHub: Where Community Meets Purpose
               </h1>
-              <h2 className="lg:text-xl lg:font-bold mb-4">
+              <h2 data-aos="fade-up-right" data-aos-duration="1200" className="lg:text-xl lg:font-bold mb-4">
                 Join, Connect, Serve: Your Pathway to Impact Starts Here!
               </h2>
-              <p>
+              <p data-aos="fade-up-right" data-aos-duration="1400">
                 Welcome to VolunteerHub, your friendly platform for making a
                 difference. Sign up now to explore diverse volunteer
                 opportunities, connect with like-minded individuals, and make a

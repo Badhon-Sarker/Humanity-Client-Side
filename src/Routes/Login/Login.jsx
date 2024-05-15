@@ -7,6 +7,11 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
+
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
+
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -71,9 +76,9 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen backdrop:blur-3xl bg-login">
+    <div  className="hero min-h-screen backdrop:blur-3xl bg-login">
       <Helmet>
-        <title>Login</title>
+        <title  data-aos="zoom-in" data-aos-duration="1000">Login</title>
       </Helmet>
       <div className="hero-content flex-col text-white">
         <div className="text-center lg:text-left">
@@ -81,7 +86,7 @@ const Login = () => {
             Login now!
           </h1>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-[#8ea295] to-[#519e87] bg-transparent border-2 border-white my-10">
+        <div data-aos="zoom-in" data-aos-duration="1000" className="card shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-[#8ea295] to-[#519e87] bg-transparent border-2 border-white my-10">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
               <label className="label">

@@ -3,14 +3,14 @@ import { Helmet } from "react-helmet-async";
 const FAQ = () => {
   return (
     <div className="px-10 font-playfair ">
-      <h1 className="text-center text-4xl font-playfair font-bold my-5">FAQ</h1>
+      <h1 data-aos="fade-up" data-aos-duration="1200" className="text-center text-4xl font-playfair font-bold my-5">FAQ</h1>
 
-      <div className="border-2 p-2 rounded-md">
-        <div
+      <div data-aos="fade-up" data-aos-duration="1200" className="border-2 p-2 rounded-md">
+        <div 
           tabIndex={0}
           className="collapse collapse-arrow border border-base-300 bg-base-200"
         >
-          <div className="collapse-title text-xl font-medium">
+          <div  className="collapse-title text-xl font-medium">
           How can I become a volunteer with Humanity?
           </div>
           <div className="collapse-content">
@@ -18,7 +18,7 @@ const FAQ = () => {
           </div>
         </div>
 
-        <div
+        <div 
           tabIndex={0}
           className="collapse collapse-arrow border border-base-300 bg-base-200"
         >
@@ -30,7 +30,7 @@ const FAQ = () => {
           </div>
         </div>
 
-        <div
+        <div 
           tabIndex={0}
           className="collapse collapse-arrow border border-base-300 bg-base-200"
         >

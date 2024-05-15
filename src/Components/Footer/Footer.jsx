@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-200 dark:bg-gray-900 font-playfair">
+    <footer data-aos="zoom-in" data-aos-duration="1400" className="bg-gray-200 dark:bg-gray-900 font-playfair">
       <div className="container p-6 mx-auto">
         <div className="lg:flex">
           <div className="w-full -mx-6 lg:w-2/5">

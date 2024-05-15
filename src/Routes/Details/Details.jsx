@@ -27,39 +27,40 @@ const Details = () => {
       </Helmet>
       {/* details of {item.title} */}
       <div>
-        <h1 className="my-4 md:text-3xl font-bold font-playfair text-center underline">
+        <h1 data-aos="fade-down" data-aos-duration="1000" className="my-4 md:text-3xl font-bold font-playfair text-center underline">
           Details
         </h1>
       </div>
 
       <div className="md:grid md:grid-cols-5">
-        <div className="col-span-5 md:col-span-3 p-2">
+        <div data-aos="fade-up-right" data-aos-duration="1000" className="col-span-5 md:col-span-3 p-2">
           <img src={item.thumbnail} alt="" />
         </div>
 
         <div className="col-span-2 p-2 md:p-4 flex flex-col justify-center items-center">
-          <h1 className="text-3xl font-bold mb-5">{item.title}</h1>
 
-          <div className="space-y-2">
-            <div className="flex items-center text-xl font-semibold gap-2">
+          <h1 data-aos="fade-up-left" data-aos-duration="1000" className="text-3xl font-bold mb-5">{item.title}</h1>
+
+          <div  className="space-y-2">
+            <div data-aos="fade-up-left" data-aos-duration="1100" className="flex items-center text-xl font-semibold gap-2">
               <h1>
                 <TbCategory />
               </h1>{" "}
               <h1>Category: {item.category}</h1>
             </div>
-            <div className="flex items-center text-xl font-semibold gap-2">
+            <div data-aos="fade-up-left" data-aos-duration="1200" className="flex items-center text-xl font-semibold gap-2">
               <h1>
                 <FaLocationDot />
               </h1>{" "}
               <h1>Location: {item.location}</h1>
             </div>
-            <div className="flex items-center text-xl font-semibold gap-2">
+            <div data-aos="fade-up-left" data-aos-duration="1300" className="flex items-center text-xl font-semibold gap-2">
               <h1>
                 <MdOutlineConfirmationNumber />
               </h1>{" "}
               <h1>Volunteer Number: {item.number}</h1>
             </div>
-            <div className="flex items-center text-xl font-semibold gap-2">
+            <div data-aos="fade-up-left" data-aos-duration="1400" className="flex items-center text-xl font-semibold gap-2">
               <h1>
                 <SlCalender />
               </h1>{" "}
@@ -70,14 +71,14 @@ const Details = () => {
       </div>
 
       <div className="md:p-5 p-3">
-        <h1 className="my-4 md:text-2xl font-bold font-playfair text-center">
+        <h1 data-aos="fade-up" data-aos-duration="1200" className="my-4 md:text-2xl font-bold font-playfair text-center">
           Description:
         </h1>
 
-        <p className="text-gray-600">{item.description}</p>
+        <p data-aos="fade-up" data-aos-duration="1400" className="text-gray-600">{item.description}</p>
       </div>
 
-      <div className="flex justify-center my-5">
+      <div data-aos="zoom-in" data-aos-duration="1400" className="flex justify-center my-5">
         <NavLink to={`/beVolunteer/${id}`}>
           <button className="btn bg-gray-200">Be a Volunteer</button>
         </NavLink>

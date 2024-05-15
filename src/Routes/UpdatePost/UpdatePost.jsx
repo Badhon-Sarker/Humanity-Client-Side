@@ -65,7 +65,7 @@ const UpdatePost = () => {
   };
 
   return (
-    <div>
+    <div data-aos="zoom-in" data-aos-duration="1100">
       <Helmet>
         <title>Update</title>
       </Helmet>

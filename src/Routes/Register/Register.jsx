@@ -8,6 +8,10 @@ import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
+
 const Register = () => {
   const [eye, setEye] = useState(false);
   const [passErr, setPassErr] = useState([]);
@@ -72,11 +76,11 @@ const Register = () => {
       </Helmet>
       <div className="hero-content flex-col">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold  mt-10 font-playfair">
+          <h1  data-aos="zoom-in" data-aos-duration="1000" className="text-5xl font-bold  mt-10 font-playfair">
             Register now!
           </h1>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-[#538bcf] to-[#73b2e2] bg-transparent my-10">
+        <div  data-aos="zoom-in" data-aos-duration="1000" className="card shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-[#538bcf] to-[#73b2e2] bg-transparent my-10">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
               <label className="label">

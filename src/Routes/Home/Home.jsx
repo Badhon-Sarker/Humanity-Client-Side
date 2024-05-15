@@ -6,6 +6,10 @@ import { NavLink } from "react-router-dom";
 import FAQ from "../../Components/FAQ/FAQ";
 import Testimonials from "../../Components/Testimonial/Testimonials";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
+
 const Home = () => {
   const [volunteers, setVolunteers] = useState([]);
 
@@ -30,14 +34,14 @@ const Home = () => {
 
       {/* banner */}
 
-      <div>
+      <div  data-aos="fade-up" data-aos-duration="1000">
         <Banner></Banner>
       </div>
 
       {/* data */}
 
-      <div>
-        <h1 className="text-center text-4xl font-playfair font-bold my-5">
+      <div >
+        <h1 data-aos="fade-down" data-aos-duration="1000" className="text-center text-4xl font-playfair font-bold my-5">
           Volunteer Needs Now
         </h1>
 
@@ -51,7 +55,7 @@ const Home = () => {
 
         <div className="flex justify-center my-5 ">
           <NavLink to={"/needVolunteer"}>
-            <button className="btn bg-gray-200">See All</button>
+            <button  className="btn bg-gray-200">See All</button>
           </NavLink>
         </div>
 

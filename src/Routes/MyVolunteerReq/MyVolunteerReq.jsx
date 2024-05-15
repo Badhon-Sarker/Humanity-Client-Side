@@ -58,11 +58,11 @@ const MyVolunteerReq = () => {
         <Helmet><title>My Volunteer Request</title></Helmet>
       
 
-      <h1 className="text-center text-4xl font-playfair font-bold my-5">
+      <h1 data-aos="fade-up" data-aos-duration="1000" className="text-center text-4xl font-playfair font-bold my-5">
         My Volunteer Request
       </h1>
 
-      <div className="overflow-x-auto">
+      <div data-aos="fade-up" data-aos-duration="1200" className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>

@@ -54,7 +54,7 @@ const MyPost = () => {
   };
 
   return (
-    <div>
+    <div data-aos="fade-up" data-aos-duration="1000">
       <Helmet>
         <title>Manage My Post</title>
       </Helmet>
@@ -63,7 +63,7 @@ const MyPost = () => {
         Manage My Post
       </h1>
 
-      <div className="overflow-x-auto">
+      <div data-aos="fade-up" data-aos-duration="1200" className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
