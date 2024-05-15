@@ -66,7 +66,7 @@ const Register = () => {
       });
   };
   return (
-    <div className="hero min-h-screen bg-register-bg ">
+    <div className="hero min-h-screen bg-register text-white ">
       <Helmet>
         <title>Register</title>
       </Helmet>
@@ -76,7 +76,7 @@ const Register = () => {
             Register now!
           </h1>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-blue-400 my-10">
+        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-[#538bcf] to-[#73b2e2] bg-transparent my-10">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -87,7 +87,7 @@ const Register = () => {
               <input
                 type="text"
                 placeholder="Your name"
-                className="input input-bordered"
+                className="input input-bordered "
                 {...register("registerName", { required: true })}
               />
               {errors.registerName?.type === "required" && (
@@ -104,7 +104,7 @@ const Register = () => {
               <input
                 type="email"
                 placeholder="Your email"
-                className="input input-bordered"
+                className="input input-bordered "
                 {...register("registerEmail", { required: true })}
               />
               {errors.registerEmail?.type === "required" && (
@@ -121,7 +121,7 @@ const Register = () => {
               <input
                 type="text"
                 placeholder="Photo URL"
-                className="input input-bordered"
+                className="input input-bordered "
                 {...register("registerPhoto")}
               />
             </div>
@@ -136,7 +136,7 @@ const Register = () => {
                 <input
                   type={eye ? "text" : "password"}
                   placeholder="Your password"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full "
                   {...register("registerPass", { required: true })}
                 />
 
@@ -159,7 +159,7 @@ const Register = () => {
               </div>
             </div>
             <div className="form-control mt-2">
-              <button className="btn bg-blue-700 text-white ">Register</button>
+              <button className="btn bg-blue-400 text-white ">Register</button>
             </div>
           </form>
         </div>

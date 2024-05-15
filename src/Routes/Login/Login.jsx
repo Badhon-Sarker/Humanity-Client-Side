@@ -45,7 +45,7 @@ const Login = () => {
         }, {
           withCredentials: true
         })
-                 
+
         toast.success("Login Successful");
         navigate(location?.state ? location.state : "/");
       })
@@ -71,17 +71,17 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-login-bg ">
+    <div className="hero min-h-screen backdrop:blur-3xl bg-login">
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <div className="hero-content flex-col">
+      <div className="hero-content flex-col text-white">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold  mt-10 font-playfair">
+          <h1 className="text-5xl font-bold  text-white mt-10 font-playfair">
             Login now!
           </h1>
         </div>
-        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-red-400 my-10">
+        <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-[#8ea295] to-[#519e87] bg-transparent border-2 border-white my-10">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
               <label className="label">
@@ -92,7 +92,7 @@ const Login = () => {
               <input
                 type="email"
                 placeholder="Your email"
-                className="input input-bordered"
+                className="input input-bordered bg-green-300"
                 {...register("loginEmail", { required: true })}
               />
               {errors.loginEmail?.type === "required" && (
@@ -108,7 +108,7 @@ const Login = () => {
               <input
                 type="password"
                 placeholder="Your password"
-                className="input input-bordered"
+                className="input input-bordered bg-green-300"
                 {...register("loginPass", { required: true })}
               />
               {errors.loginPass?.type === "required" && (
@@ -131,7 +131,7 @@ const Login = () => {
             </div>
 
             <div className="form-control mt-2">
-              <button className="btn bg-red-700 text-white ">Login</button>
+              <button className="btn bg-green-300 text-white ">Login</button>
             </div>
             <div>
               <div className="divider">OR</div>
@@ -141,7 +141,7 @@ const Login = () => {
               <div className="flex flex-col gap-2">
                 <div
                   onClick={handleGoogle}
-                  className=" bg-red-500 text-white flex justify-center items-center gap-2 py-2 rounded-lg border"
+                  className=" bg-green-300 text-white flex justify-center items-center gap-2 py-2 rounded-lg border"
                 >
                   <div>
                     <IoLogoGoogle />
@@ -150,7 +150,7 @@ const Login = () => {
                 </div>
                 <div
                   onClick={handleGithub}
-                  className=" bg-red-500 text-white flex justify-center items-center gap-2 py-2 rounded-lg border"
+                  className=" bg-green-300 text-white flex justify-center items-center gap-2 py-2 rounded-lg border"
                 >
                   <div>
                     <FaGithub />
