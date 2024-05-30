@@ -42,6 +42,18 @@ const Navbar = () => {
       >
         My Volunteer Request
       </NavLink>
+
+
+      <NavLink
+        className={({ isActive }) =>
+          isActive
+            ? "text-green-500 lg:text-black lg:border-b-2 border-green-500"
+            : ""
+        }
+        to={'/feedback'}
+      >
+        Feedback
+      </NavLink>
       
     </div>
   );
