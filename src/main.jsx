@@ -94,7 +94,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/feedback',
-        element: <Feedback></Feedback>
+        element: <PrivateRoute><Feedback></Feedback></PrivateRoute>
       }
     ],
   },
